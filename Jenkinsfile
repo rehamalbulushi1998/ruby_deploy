@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ruby build main.rb'
+                sh 'ruby main.rb'
             }
         }
       
