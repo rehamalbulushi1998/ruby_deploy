@@ -4,6 +4,13 @@ pipeline {
     parameters {
          choice choices: ['qa', 'production'], description: 'Select environment for deployment', name: 'DEPLOY_TO'
        }
+     
+     stages {
+        stage('Build') {
+            steps {
+                sh 'ruby main.rb'
+            }
+        }
 
           stage('Deliver') {
             steps {
