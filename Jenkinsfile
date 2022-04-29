@@ -1,16 +1,14 @@
 pipeline {
     agent any
 
+    pipeline {
+    agent { docker { image 'ruby:3.0.3-alpine' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 sh 'ruby build -o sample main.rb'
             }
         }
-        stage('Save artifact') {
-            steps {
-                archiveArtifacts artifacts: 'sample', followSymlinks: false
-            }
-        }
     }
 }
+    
